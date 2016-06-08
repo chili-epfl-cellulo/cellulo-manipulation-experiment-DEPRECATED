@@ -30,23 +30,27 @@ Rectangle {
             id: btask3
             color:"Yellow"
             buttontext: "Rollercoster"
-            onButtonClicked: console.log("t4 clicked")
+            onButtonClicked: bClicked("Task3")
         }
 
         Button{
             id: tbask4
             buttontext: "Re-Move"
-            onButtonClicked: console.log("t4 clicked")
+            onButtonClicked: bClicked("Task4")
         }
         Button{
             id: tbask5
             buttontext: "Find the shape"
-            onButtonClicked: console.log("t4 clicked")
+            onButtonClicked: bClicked("Task5")
         }
         Button{
             id: tbask6
             buttontext: "Crack the code"
-            onButtonClicked: console.log("t4 clicked")
+            onButtonClicked: bClicked("Task6")
         }
+
+
     }
+
+
 }

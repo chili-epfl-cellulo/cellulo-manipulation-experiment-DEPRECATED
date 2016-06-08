@@ -11,7 +11,7 @@ ApplicationWindow {
     visible: true
     width: Screen.width /2
     height: Screen.height/2
-    title: qsTr("Wind Field Game")
+    title: qsTr("Manipulation")
 
     StateEngine{
         id: stateEngine
@@ -73,14 +73,16 @@ ApplicationWindow {
     Task{
         id:currentTask
         mode:0
+        width:parent.width
+        height:parent.height
         visible : false
         enabled : false
         onModeChanged: {launchTask()
-            console.log('mide changed')
+            console.log('mode changed')
         }
     }
 
-    MainMenu {
+    /*MainMenu {
         id: mainmenu
         stateEngine: stateEngine
         onBClicked:{
@@ -88,9 +90,76 @@ ApplicationWindow {
             console.log(taskname)
             console.log(stateEngine.currentState)
         }
-    }
+    }*/
 
-    CelluloRobot{
+
+
+    ListModel {
+           id: appModel // used to be icons of 48
+           ListElement { name: "Follow the Path"; icon: "../../assests/FollowPath.png" }
+           ListElement { name: "FindSubmarines"; icon: "../../assests/FindSubmarines.png" }
+           ListElement { name: "Rollercoaster"; icon: "../../assests/FollowPath.png" }
+           ListElement { name: "ReMove"; icon: "../../assests/FollowPath.png" }
+           ListElement { name: "Feel The Gemoetry"; icon: "../../assests/FeelGeometry.png" }
+           ListElement { name: "Crack the Code"; icon: "../../assests/FollowPath.png" }
+           ListElement { name: "Help"; icon: "../../assests/FollowPath.png" }
+       }
+
+
+
+    Component {
+           id: appDelegate
+           Item {
+               width: 300; height: 300
+               scale: PathView.iconScale
+
+               Image {
+                   id: myIcon
+                   y: 20; anchors.horizontalCenter: parent.horizontalCenter
+                   source: icon
+                   width:48;height:48
+               }
+               Text {
+                   anchors { top: myIcon.bottom; horizontalCenter: parent.horizontalCenter }
+                   text: name
+               }
+
+               MouseArea {
+                   anchors.fill: parent
+                   onClicked: {view.currentIndex = index
+                   console.log("current index %d", index)
+                   }
+               }
+           }
+       }
+
+       Component {
+           id: appHighlight
+           Rectangle { width: 80; height: 80; color: "lightsteelblue" }
+       }
+
+       PathView {
+           id: view
+           anchors.fill: parent
+           highlight: appHighlight
+           preferredHighlightBegin: 0.5
+           preferredHighlightEnd: 0.5
+           focus: true
+           model: appModel
+           delegate: appDelegate
+           path: Path {
+               startX: 50
+               startY: 50
+               PathAttribute { name: "iconScale"; value: 0.5 }
+               PathQuad { x: 400; y: 200; controlX: 200; controlY: 400 }
+               PathAttribute { name: "iconScale"; value: 1.0 }
+               PathQuad { x: 390; y: 50; controlX: 350; controlY: 200 }
+               PathAttribute { name: "iconScale"; value: 1 }
+           }
+       }
+
+
+    /*CelluloRobot{
         id: cellulo1
         //playground: playground
         robotId: 1
@@ -103,22 +172,7 @@ ApplicationWindow {
                 currentTask.state="waitconnect"
             }
         }
-        robotComm.onKidnappedChanged:{
-            //log
-        }
-
-        onTouchesChanged:{
-            console.log(cellulo1.touches)
-        }
-
-        robotComm.onLongTouch:{
-            //log
-        }
-
-        robotComm.onPoseChanged: {
-            //logdata
-        }
-    }
+    }*/
 
 }
 

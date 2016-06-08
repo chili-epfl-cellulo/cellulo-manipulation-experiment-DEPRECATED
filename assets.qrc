@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>assests/FindSubmarines/sea.png</file>
+        <file>assests/FollowPath.png</file>
+        <file>assests/FindSubmarines.png</file>
+        <file>assests/FeelGeometry.png</file>
     </qresource>
 </RCC>
