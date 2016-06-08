@@ -6,18 +6,17 @@ Rectangle {
 
     StateEngine{
         id: stateEngine
-        currentState: 'MainMenu'
+        currentState: "MainMenu"
         states: [
-            'MainMenu',
-            'Task1',
-            'Task2',
-            'Task3'
+            "MainMenu",
+            "Task1",
+            "Task2",
+            "Task3"
         ]
-
         onCurrentStateChanged: {
             mainmenu.visible = false;
             mainmenu.enabled = false;
-
+            console.log(currentState)
             switch(currentState){
             case 'MainMenu':
                 mainmenu.visible = true;
@@ -25,10 +24,13 @@ Rectangle {
                 break;
             case 'Task1':
                 currentTask.mode = 1;
-                console.log('game1 started')
+                mainmenu.visible = false
+                mainmenu.enabled = false
                 break;
             case 'Task2':
                 currentTask.mode = 2;
+                mainmenu.visible = false
+                mainmenu.enabled = false
                 break;
             default:
                 break;
@@ -39,11 +41,21 @@ Rectangle {
     Task{
        id:currentTask
        mode:0
+       onModeChanged: {launchTask()
+       console.log('mide changed')
+       }
     }
 
     MainMenu {
         id: mainmenu
         stateEngine: stateEngine
-    }
+        onBClicked:{
+            stateEngine.currentState=taskname
+            console.log(taskname)
+            console.log(stateEngine.currentState)
+        }
+        }
 
 }
+
+

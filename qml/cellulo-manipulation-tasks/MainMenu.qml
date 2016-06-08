@@ -4,6 +4,7 @@ Rectangle {
     width: 100
     height: 62
     property variant stateEngine: stateEngine
+    signal bClicked(string taskname)
     GridLayout {
         columns: 3
         rowSpacing: 30
@@ -11,16 +12,18 @@ Rectangle {
             id: btask1
             color:"red"
             buttontext: "Follow the path"
-            onButtonClicked: {console.log("t1 clicked")
-            stateEngine.goToStateByName("task1")
+            onButtonClicked: {
+                bClicked("Task1")
             }
         }
 
         Button{
-            id: btask42
+            id: btask2
             color:"orange"
             buttontext: "Find the boats"
-            onButtonClicked: console.log("t4 clicked")
+            onButtonClicked: {
+                bClicked("Task2")
+            }
         }
 
         Button{
