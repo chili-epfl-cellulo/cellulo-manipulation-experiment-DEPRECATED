@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/cellulo-manipulation-tasks/FindSubmarines.qml</file>
+        <file>qml/cellulo-manipulation-tasks/Task.qml</file>
+        <file>qml/cellulo-manipulation-tasks/CrackTheCode.qml</file>
+        <file>qml/cellulo-manipulation-tasks/FeelTheGeometry.qml</file>
+        <file>qml/cellulo-manipulation-tasks/ReMove.qml</file>
+        <file>qml/cellulo-manipulation-tasks/Rollercoaster.qml</file>
+        <file>qml/cellulo-manipulation-tasks/main.qml</file>
+        <file>qml/cellulo-manipulation-tasks/MainMenu.qml</file>
+        <file>qml/cellulo-manipulation-tasks/FollowPath.qml</file>
+        <file>qml/cellulo-manipulation-tasks/Button.qml</file>
+        <file>qml/cellulo-manipulation-tasks/StateEngine.qml</file>
+    </qresource>
+</RCC>

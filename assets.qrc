@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assests/FindSubmarines/sea.png</file>
+    </qresource>
+</RCC>
