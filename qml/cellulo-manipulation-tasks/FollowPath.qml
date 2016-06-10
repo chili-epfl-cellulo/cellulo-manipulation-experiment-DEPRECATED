@@ -5,7 +5,7 @@ Rectangle {
     property int nbForce: 0
     property variant listForceIntensities: []
     property variant listForcePositions: [] //positions and orienttions
-    property variant path: []
+    property variant path: [] // from the predefined set of lines
 
     function loadPath(){
      // here load the zone with the path defined

@@ -126,7 +126,8 @@ ApplicationWindow {
 
                MouseArea {
                    anchors.fill: parent
-                   onClicked: {view.currentIndex = index
+                   onClicked: {view.currentIndex = index;
+
                    console.log("current index %d", index)
                    }
                }
